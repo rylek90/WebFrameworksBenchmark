@@ -1,0 +1,14 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Benchmark prime numbers calculator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Maciej Rylko",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
