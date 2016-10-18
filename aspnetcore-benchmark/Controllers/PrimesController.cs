@@ -18,6 +18,12 @@ namespace aspnetcore.benchmark.Controllers
             Response.ContentType = "application/json";
             return Json(_primesChecker.Check());
         }
+
+        [HttpGet("generate")]
+        public JsonResult Generate() {
+            Response.ContentType = "application/json";
+            return Json(_primesChecker.Prime());
+        }
     }
 }
 

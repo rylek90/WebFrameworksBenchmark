@@ -10,7 +10,12 @@ app.use(express.static('public'));
 app.get('/primes', (request, response) => {
 	response.setHeader('Content-Type', 'application/json');
 	response.send(JSON.stringify(primes.checkPrimes()));
-})
+});
+
+app.get('/generate', (request, response) => {
+  response.setHeader('Content-Type', 'application/json');
+  response.send(JSON.stringify(primes.generate()));
+});
 
 app.listen(port, host, (err) => {
   if (err) {

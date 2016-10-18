@@ -43,10 +43,31 @@ var defineModel = function (number, isPrime) {
 module.exports = {
 
     checkPrimes: function () {
-        var numbers = generateNumbers(100, 1000);
+        var numbers = generateNumbers(100, 1000000);
         var result = [];
         for (var i = 0; i < 100; i += 1) {
             result.push(defineModel(numbers[i], isPrime(numbers[i])));
+        }
+
+        return result;
+    },
+
+    generate: function () {
+        var result = [];
+
+        for (var i = 2; result.length < 100; i += 1) {
+            var isPrime = true;
+
+            for (var j = 0; j < result.length; j += 1) {
+                if (i % result[j] === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                result.push(i);
+            }
         }
 
         return result;

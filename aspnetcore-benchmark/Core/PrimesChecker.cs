@@ -1,5 +1,3 @@
-
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using aspnetcore.benchmark.Model;
@@ -9,6 +7,7 @@ namespace aspnetcore.benchmark.Core
     public interface ICheckPrimes
     {
         IEnumerable<PrimeModel> Check();
+        IReadOnlyCollection<int> Prime();
     }
 
     internal class PrimesChecker : ICheckPrimes
@@ -20,12 +19,37 @@ namespace aspnetcore.benchmark.Core
         }
         public IEnumerable<PrimeModel> Check()
         {
-            var numbers = _generator.Generate(100, 1000);
+            var numbers = _generator.Generate(100, 1000000);
             return numbers.Select(n => new PrimeModel
             {
                 val = n,
                 isPrime = IsPrime(n)
             });
+        }
+
+        public IReadOnlyCollection<int> Prime()
+        {
+            var result = new List<int>();
+
+            for (var i = 2; result.Count < 100; i += 1)
+            {
+                var isPrime = true;
+                foreach (var prime in result)
+                {
+                    if (i % prime == 0)
+                    {
+                        isPrime = false;
+                        break;
+                    }
+                }
+
+                if (isPrime)
+                {
+                    result.Add(i);
+                }
+            }
+
+            return result;
         }
 
         private static bool IsPrime(int number)
