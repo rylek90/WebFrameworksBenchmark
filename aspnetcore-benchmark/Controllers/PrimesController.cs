@@ -13,16 +13,16 @@ namespace aspnetcore.benchmark.Controllers
         }
 
         [HttpGet("primes/random")]
-        public JsonResult Primes()
+        public JsonResult Random()
         {
             Response.ContentType = "application/json";
-            return Json(_primesChecker.Check());
+            return Json(_primesChecker.Random());
         }
 
         [HttpGet("primes/find")]
-        public JsonResult Generate() {
+        public JsonResult Find() {
             Response.ContentType = "application/json";
-            return Json(_primesChecker.Prime());
+            return Json(_primesChecker.Find());
         }
     }
 }
