@@ -42,7 +42,7 @@ var defineModel = function (number, isPrime) {
 
 module.exports = {
 
-    checkPrimes: function () {
+    random: function () {
         var numbers = generateNumbers(100, 1000000);
         var result = [];
         for (var i = 0; i < 100; i += 1) {
@@ -52,7 +52,7 @@ module.exports = {
         return result;
     },
 
-    generate: function () {
+    find: function () {
         var result = [];
 
         for (var i = 2; result.length < 100; i += 1) {

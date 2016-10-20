@@ -2,7 +2,7 @@ import Foundation
 
 class PrimesGenerator {
 
-    func generatePrimes() -> [String: Any] {
+    func find() -> [String: Any] {
         var primes = [Int]()
         
         var i = 2
@@ -28,7 +28,7 @@ class PrimesGenerator {
         return result
     }
     
-    func checkPrimes() -> [String: Bool] {
+    func random() -> [String: Bool] {
         let numbers = generateNumbers(count: 100, max: 1000000)
         var result = [String: Bool]()
 

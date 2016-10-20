@@ -37,16 +37,16 @@ let server = HTTPServer()
 
 // Register your own routes and handlers
 var routes = Routes()
-routes.add(method: .get, uri: "/check", handler: {
+routes.add(method: .get, uri: "/primes/random", handler: {
 		request, response in
-        let primes = PrimesGenerator().checkPrimes()
+        let primes = PrimesGenerator().random()
         asJsonResponse(response: response, data: primes)
 	}
 )
 
-routes.add(method: .get, uri: "/generate", handler: {
+routes.add(method: .get, uri: "/primes/find", handler: {
     request, response in
-    let primes = PrimesGenerator().generatePrimes()
+    let primes = PrimesGenerator().find()
     asJsonResponse(response: response, data: primes)
 })
 

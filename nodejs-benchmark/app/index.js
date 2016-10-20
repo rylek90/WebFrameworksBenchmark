@@ -7,14 +7,14 @@ const primes = require('./primes')
 
 app.use(express.static('public'));
 
-app.get('/primes', (request, response) => {
+app.get('/primes/random', (request, response) => {
 	response.setHeader('Content-Type', 'application/json');
-	response.send(JSON.stringify(primes.checkPrimes()));
+	response.send(JSON.stringify(primes.random()));
 });
 
-app.get('/generate', (request, response) => {
+app.get('/primes/find', (request, response) => {
   response.setHeader('Content-Type', 'application/json');
-  response.send(JSON.stringify(primes.generate()));
+  response.send(JSON.stringify(primes.find()));
 });
 
 app.listen(port, host, (err) => {

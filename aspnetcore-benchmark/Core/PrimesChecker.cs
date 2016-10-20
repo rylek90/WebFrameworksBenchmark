@@ -6,8 +6,8 @@ namespace aspnetcore.benchmark.Core
 {
     public interface ICheckPrimes
     {
-        IEnumerable<PrimeModel> Check();
-        IReadOnlyCollection<int> Prime();
+        IEnumerable<PrimeModel> Random();
+        IReadOnlyCollection<int> Find();
     }
 
     internal class PrimesChecker : ICheckPrimes
@@ -17,7 +17,8 @@ namespace aspnetcore.benchmark.Core
         {
             _generator = generator;
         }
-        public IEnumerable<PrimeModel> Check()
+
+        public IEnumerable<PrimeModel> Random()
         {
             var numbers = _generator.Generate(100, 1000000);
             return numbers.Select(n => new PrimeModel
@@ -27,7 +28,7 @@ namespace aspnetcore.benchmark.Core
             });
         }
 
-        public IReadOnlyCollection<int> Prime()
+        public IReadOnlyCollection<int> Find()
         {
             var result = new List<int>();
 
