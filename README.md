@@ -30,7 +30,6 @@ dotnet run
 ### Node.js ###
 ```
 cd nodejs-benchmark/
-npm install
 node index.js --production
 ```
 
